@@ -1,0 +1,28 @@
+﻿@model IEnumerable<FoodOrder.Models.Food>
+
+@{
+    Layout = "";
+}
+<div style="display: flex;margin-top:30px;margin-bottom:30px; margin-left:15px;">
+    <input type="search" id="txtSearch" class="form-control" onkeypress="onEnterKey(event)" />
+    <a class="btn btn-primary" onclick="onSearchClick()" style="margin-left:15px">Search</a>
+</div>
+
+@Html.Action("View", new { dbParam = new FoodOrder.Models.DBParam { Limit = 5, Page = 1, FilterString = "" } })
+
+<div class="container body-content">
+    <h4>Order List </h4>
+    <hr />
+
+    @Html.Action("OrderCart", new { deletable = true })
+
+    <table class="table">
+        <tr>
+            <td colspan="5">
+                <button class="btn btn-primary" onclick="checkout()">Order</button>
+            </td>
+        </tr>
+    </table>
+</div>
+    
+

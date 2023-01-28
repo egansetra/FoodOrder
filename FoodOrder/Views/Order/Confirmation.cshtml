@@ -1,0 +1,38 @@
+﻿
+@{
+    string custName = this.ViewData["Name"].ToString();
+    string payType = this.ViewData["PayType"].ToString();
+    ViewBag.Title = "Confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Confirmation</h2>
+<table class="table">
+    <tr>
+        <td>
+            Name
+        </td>
+        <td style="width:2px">:</td>
+        <td>@custName</td>
+    </tr>
+    <tr>
+        <td>
+            Payment
+        </td>
+        <td style="width:2px">:</td>
+        <td>@payType</td>
+    </tr>
+</table>
+
+<h4>Detail Order</h4>
+@Html.Action("OrderCart", "Home", new { deletable = false })
+<table class="table">
+    <tr>
+        <td colspan="5">
+            <a href="/Order/Checkout" class="btn btn-default">Back</a>
+            <button class="btn btn-primary" onclick="paymentConfirmed('@custName', '@payType')">Confirm</button>
+        </td>
+    </tr>
+</table>
+
+

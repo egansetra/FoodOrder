@@ -1,0 +1,33 @@
+﻿@model FoodOrder.Models.Food
+
+<div>
+    <h4>Order Detail</h4>
+    <table class="table">
+        <tr>
+            <td width="125px">@Html.DisplayNameFor(model => model.Name)</td>
+            <td width="2px">:</td>
+            <td>@Html.DisplayFor(model => model.Name)</td>
+        </tr>
+        <tr>
+            <td width="125px"> @Html.DisplayNameFor(model => model.Description)</td>
+            <td width="2px">:</td>
+            <td>@Html.DisplayFor(model => model.Description)</td>
+        </tr>
+        <tr>
+            <td width="125px"> @Html.DisplayNameFor(model => model.Price)</td>
+            <td width="2px">:</td>
+            <td> @Html.DisplayFor(model => model.Price)</td>
+        </tr>
+        <tr>
+            <td width="125px">  @Html.DisplayNameFor(model => model.Quantity)</td>
+            <td width="2px">:</td>
+            <td> <input id="txtQty" type="number" class="form-control" style="width:70px" value="0" /></td>
+        </tr>
+    </table>
+</div>
+<div >
+    <a href="/" class="btn btn-default">Back</a>
+    <button class="btn btn-primary" onclick="addOrder(@Html.ViewData.Model.ID)">Add</button>
+</div>
+
+

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Checkout</h2>
+    <table class="table">
+        <tr>
+            <td width="125px">Customer Name</td>
+            <td width="2px">:</td>
+            <td><input id="CustName" type="text" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td width="125px">Payment</td>
+            <td width="2px">:</td>
+            <td>
+                <select id="PayType" class="form-control">
+                    <option>Cash</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+<h4>Detail Order</h4>
+@Html.Action("OrderCart", "Home", new { deletable = false })
+<table class="table">
+    <tr>
+
+        <td colspan="5">
+            <a href="/" class="btn btn-default">Back</a>
+            <button class="btn btn-primary" onclick="confirmPayment()">Check Out</button>
+        </td>
+    </tr>
+</table>
